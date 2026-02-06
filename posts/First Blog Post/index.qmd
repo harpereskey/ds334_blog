@@ -1,8 +1,15 @@
 ---
-title: "First Post"
-author: "Harper Eskey and Hayden Beyer"
-date: "2026-02-06"
-categories: [news, code, analysis]
+title: "Blog 1"
+author: "Hayden Beyer and Harper Eskey"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
 ---
 
 ## Introduction:
@@ -260,7 +267,6 @@ state_df2 <- ggplot2::map_data("state")
 state_world_potential <- state_world_potential |> 
   mutate(state_name = str_to_lower(state_name)) |>
   mutate(state_name = str_replace_all(state_name, "-", " "))
-
 ```
 
 ```{r message=FALSE}
