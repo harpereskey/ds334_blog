@@ -13,7 +13,8 @@ title-block-banner: true
 ---
 
 ## Introduction:
-In this project, we explore a large higher-education dataset that is organized into five connected CSV files covering tuition costs, income and affordability, enrollment diversity, historical tuition trends, and career outcomes. By looking at these pieces together, we aim to understand how college prices differ by school type and income level, how costs have changed over time, and how those differences connect to salary outcomes and student experiences. Our goal is to use data visualization to identify patterns in affordability and inequality in higher education and to reflect on what those patterns mean for students. 
+
+In this project, we explore a large higher-education dataset that is organized into five connected CSV files covering tuition costs, income and affordability, enrollment diversity, historical tuition trends, and career outcomes. By looking at these pieces together, we aim to understand how college prices differ by school type and income level, how costs have changed over time, and how those differences connect to salary outcomes and student experiences. Our goal is to use data visualization to identify patterns in affordability and inequality in higher education and to reflect on what those patterns mean for students.
 
 ```{r message=FALSE}
 library(tidyverse)
@@ -75,11 +76,12 @@ weighted_pct |>
   ) +
   theme_bw()
 ```
+
 The graph above shows the demographic of percent of categories of total enrollment. As we can see 56% of total national enrollment is women ("Boys go to Jupiter to get more stupider, girls go to college to get more knowledge"). We see that 52% of enrollment is white while total minority is 37%. While campuses are diversifying, there is still a significant gap compared to the white student population.
 
 ## Tuition Income
 
-The file tuition_income.csv contains information about how college costs vary by income level. Each row represents a school and an income bracket for a specific year. The dataset includes the school name, state, total published price of attendance, whether students live on or off campus, the year of the estimate, and the net cost, which reflects the average amount students actually pay after scholarships and financial aid. 
+The file tuition_income.csv contains information about how college costs vary by income level. Each row represents a school and an income bracket for a specific year. The dataset includes the school name, state, total published price of attendance, whether students live on or off campus, the year of the estimate, and the net cost, which reflects the average amount students actually pay after scholarships and financial aid.
 
 ### Q2) Do higher income students pay closer to the full published tuition price than lower income students?
 
@@ -142,7 +144,7 @@ ggplot(tc_long, aes(x = type, y = cost, fill = tuition_type)) +
   theme_bw()
 ```
 
-Here we see the average sticker price by school type. It interesting to see how "For Profit" and "Private" are the same when it comes to in state and out of state prices. "Public" schools tend to give better deals to in state students versus out of state students. Private schools have the highest sticker price nearing $40,000, however while their sticker price is high, it is important to recognize that private schools tend to give out much more financial aid than other schools. 
+Here we see the average sticker price by school type. It interesting to see how "For Profit" and "Private" are the same when it comes to in state and out of state prices. "Public" schools tend to give better deals to in state students versus out of state students. Private schools have the highest sticker price nearing \$40,000, however while their sticker price is high, it is important to recognize that private schools tend to give out much more financial aid than other schools.
 
 ## Historical Tuition
 
@@ -167,9 +169,11 @@ ggplot(historical_inf_timeline, aes(x = year, y = tuition_cost, colour = type)) 
   axis.text.x = element_text(angle = 45, hjust = 1)
 )
 ```
-In the graph above we can see the trend line from 1985 to 2017 of Tuition Costs. We can see the seperation between Private and Public schools tuition wise with private schools being much more expensive as well as increase more sharply over time. 
+
+In the graph above we can see the trend line from 1985 to 2017 of Tuition Costs. We can see the seperation between Private and Public schools tuition wise with private schools being much more expensive as well as increase more sharply over time.
 
 ### Q5) How do 2-year vs 4-year tuition costs compare?
+
 ```{r}
 historical_tuition_2yv4y <- historical_tuition %>%
   filter(tuition_type %in% c("4 Year Constant", "2 Year Constant")) %>%
@@ -192,7 +196,7 @@ ggplot(historical_tuition_2yv4y,
   )
 ```
 
-We can see the difference between tuition cost from 1985 to 2016 between 2 and 4 year schools from both private and public institutions. Throughout time we see the price gap split more and more between 2 and 4 year schools in both private and public settings. 
+We can see the difference between tuition cost from 1985 to 2016 between 2 and 4 year schools from both private and public institutions. Throughout time we see the price gap split more and more between 2 and 4 year schools in both private and public settings.
 
 ## Salary Potential
 
@@ -204,7 +208,6 @@ The file salary_potential.csv contains information about career outcomes associa
 salary_clean <- salary_potential |>
   drop_na(make_world_better_percent, mid_career_pay)
 ```
-
 
 ```{r message=FALSE}
 ggplot(salary_clean,
@@ -218,7 +221,7 @@ ggplot(salary_clean,
   theme_bw()
 ```
 
-As you can see from the scatter plot above there seems to be a slight negative correlation between percent of alumni who think they are making the world a better place and estimated mid-career pay in USD, shedding light on the idea that often times having jobs with a strong positive impact on the world is not compensated as much as jobs that might not make the world that much of a better place. 
+As you can see from the scatter plot above there seems to be a slight negative correlation between percent of alumni who think they are making the world a better place and estimated mid-career pay in USD, shedding light on the idea that often times having jobs with a strong positive impact on the world is not compensated as much as jobs that might not make the world that much of a better place.
 
 ### Q7) What is average mid-career pay by state?
 
@@ -251,7 +254,6 @@ ggplot(state_full, aes(x = long, y = lat, group = group)) +
 
 Here we can see a spread of the average estimated mid career salary of the students that attended colleges in the state. As we can see both New York/Northeast and California have the highest average mid career earnings while southern states have the lower earnings.
 
-
 ### Q7) What is average percent of alumni that think they are making the world a better place by state?
 
 ```{r message=FALSE}
@@ -282,20 +284,14 @@ ggplot(state_full2, aes(x = long, y = lat, group = group)) +
   theme_bw()
 ```
 
-In the graph above we almost see the colors flip. This shows the average percent of alumni from each state who think they are making the world a better place. This is in line from our previous idea that the states who tend to have higher salaries tend to have lower percentages of alumni who think they are making the world a better place. 
+In the graph above we almost see the colors flip. This shows the average percent of alumni from each state who think they are making the world a better place. This is in line from our previous idea that the states who tend to have higher salaries tend to have lower percentages of alumni who think they are making the world a better place.
 
 ## Conclusion
 
-Some flaws with our current approach is when we look at state average estimated salary there are major wealth distributions within states (i.e. NYC is a lot more wealthy than upstate NY). Additionally sticker tuition price versus the actual tuition price is very different in the sense that scholarships/grants/financial can significantly lower the price of an institution. A prime example is St. Lawrence, which has a high sticker price but gives out a lot of scholarships and grants. 
+Some flaws with our current approach is when we look at state average estimated salary there are major wealth distributions within states (i.e. NYC is a lot more wealthy than upstate NY). Additionally sticker tuition price versus the actual tuition price is very different in the sense that scholarships/grants/financial can significantly lower the price of an institution. A prime example is St. Lawrence, which has a high sticker price but gives out a lot of scholarships and grants.
 
-If we have more data or time we could look into a cost of living adjustment. States like California tend to have higher costs of living there tend to have higher salaries compared to southern states which is the opposite. It would be interesting to look at the ratio between cost of living and estimated salary to see if there is any variability between states. Additionally it would be interesting to look at data post Covid-19 pandemic. 
+If we have more data or time we could look into a cost of living adjustment. States like California tend to have higher costs of living there tend to have higher salaries compared to southern states which is the opposite. It would be interesting to look at the ratio between cost of living and estimated salary to see if there is any variability between states. Additionally it would be interesting to look at data post Covid-19 pandemic.
 
 ### Connection to Class Ideas
-Looking at some of our graphs, we tried to display different trends depending on groups whether it was regions, diversity, type of school etc. It is important to take the context of the group and what we are comparing to make a graph. An example of this is that rather than taking all 50 states and comparing there estimate salary in a bar plot, we instead plotted them on a map with a colour scale to show regional similarities and differences. Additionally this method is useful as the map adds a sense of visual appeal to the viewer.  
 
-
-
-
-
-
-
+Looking at some of our graphs, we tried to display different trends depending on groups whether it was regions, diversity, type of school etc. It is important to take the context of the group and what we are comparing to make a graph. An example of this is that rather than taking all 50 states and comparing there estimate salary in a bar plot, we instead plotted them on a map with a colour scale to show regional similarities and differences. Additionally this method is useful as the map adds a sense of visual appeal to the viewer.
