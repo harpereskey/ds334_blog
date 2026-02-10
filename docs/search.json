@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
     "objectID": "posts/First Blog Post/index.html",
     "href": "posts/First Blog Post/index.html",
     "title": "Blog 1",
@@ -61,19 +54,5 @@
     "title": "Blog 1",
     "section": "Conclusion",
     "text": "Conclusion\nSome flaws with our current approach is when we look at state average estimated salary there are major wealth distributions within states (i.e. NYC is a lot more wealthy than upstate NY). Additionally sticker tuition price versus the actual tuition price is very different in the sense that scholarships/grants/financial can significantly lower the price of an institution. A prime example is St. Lawrence, which has a high sticker price but gives out a lot of scholarships and grants.\nIf we have more data or time we could look into a cost of living adjustment. States like California tend to have higher costs of living there tend to have higher salaries compared to southern states which is the opposite. It would be interesting to look at the ratio between cost of living and estimated salary to see if there is any variability between states. Additionally it would be interesting to look at data post Covid-19 pandemic.\n\nConnection to Class Ideas\nLooking at some of our graphs, we tried to display different trends depending on groups whether it was regions, diversity, type of school etc. It is important to take the context of the group and what we are comparing to make a graph. An example of this is that rather than taking all 50 states and comparing there estimate salary in a bar plot, we instead plotted them on a map with a colour scale to show regional similarities and differences. Additionally this method is useful as the map adds a sense of visual appeal to the viewer."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   }
 ]
